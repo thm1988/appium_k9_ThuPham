@@ -22,8 +22,8 @@ public class CalculateBMIWithAdvice {
 
         if (BMIResult < 18.5) {
             System.out.println("You are underweight");
-            float underWeight = 18.5f * 2 * userHeight;
-            float weightDifference = underWeight - userWeight;
+            float minWeight = 18.5f * 2 * userHeight;
+            float weightDifference = minWeight - userWeight;
             System.out.printf("You should increase %f kg \n",weightDifference);
             }
         else if (BMIResult <= 24.9) {
