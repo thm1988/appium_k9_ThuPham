@@ -30,7 +30,7 @@ public class CountOddEvenArray {
             }
         }
         System.out.println();
-        System.out.printf("Count of even items: %d \n",even_count);
-        System.out.printf("Count of odd items: %d \n",odd_count);
+        System.out.printf("Count of even numbers: %d \n",even_count);
+        System.out.printf("Count of odd numbers: %d \n",odd_count);
     }
 }
