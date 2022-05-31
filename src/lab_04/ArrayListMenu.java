@@ -93,8 +93,7 @@ public class ArrayListMenu {
                     System.out.printf("Min value from list is : %d \n",minValueFromList);
                     break;
                 case 5:
-                    System.out.println("Search number");
-                    System.out.print("Please input the number: \t");
+                    System.out.print("Please input the number for searching : \t");
                     int userInputNumber = scanner.nextInt();
                     int indexResult=searchNumberArrayList(userInputNumber,userArrayList);
                     System.out.printf("The indicated index of number is : %d \n",indexResult);
