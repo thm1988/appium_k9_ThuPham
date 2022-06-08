@@ -12,12 +12,12 @@ public class CheckURLStr {
 
         String[] splitUserStr = userInPutURL.split("://");
 //        System.out.println(Arrays.toString(splitUserStr));
-        System.out.println("User input " + splitUserStr[0] + " in URL address");
+        System.out.println("URL Scheme " + splitUserStr[0]);
         if (splitUserStr[1].contains("www.")) {
-            System.out.println("Domain name is: " + splitUserStr[1].substring(4, splitUserStr[1].lastIndexOf(".")));
+            System.out.println("Second-level domain: " + splitUserStr[1].substring(4, splitUserStr[1].lastIndexOf(".")));
         } else {
-            System.out.println("Domain name is: " + splitUserStr[1].substring(0, splitUserStr[1].lastIndexOf(".")));
+            System.out.println("Second-level domain: " + splitUserStr[1].substring(0, splitUserStr[1].lastIndexOf(".")));
         }
-        System.out.println("Last part is : " + splitUserStr[1].substring(splitUserStr[1].lastIndexOf(".") + 1));
+        System.out.println("Top-level domain : " + splitUserStr[1].substring(splitUserStr[1].lastIndexOf(".") + 1));
     }
 }
