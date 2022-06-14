@@ -1,15 +1,12 @@
 package lab_07_01;
 
 public class FullTimeEmployee extends Employee{
-    private int salary = 50000;
+    private static final int FULLTIME_SALARY = 50000;
 
     @Override
     public int getSalary() {
-        return salary;
+        return FULLTIME_SALARY;
     }
 
-    @Override
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+
 }

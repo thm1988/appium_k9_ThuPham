@@ -65,7 +65,7 @@ public class ArrayListMenu {
 
     public static void main(String[] args) {
         int userChoice = 0;
-        boolean flag_not_exit = true;
+        boolean isContinuing = true;
         List<Integer> userArrayList = new ArrayList<>();
         do {
             printMenu();
@@ -100,11 +100,11 @@ public class ArrayListMenu {
                     break;
                 case 0:
                     System.out.println("Now exit!!!");
-                    flag_not_exit=false;
+                    isContinuing=false;
                 default:
                     continue;
             }
-        } while (flag_not_exit);
+        } while (isContinuing);
     }
 
 
