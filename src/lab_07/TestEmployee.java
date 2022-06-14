@@ -6,7 +6,9 @@ import java.util.List;
 
 public class TestEmployee {
     public static void main(String[] args) {
+
         List<Employee> employeeList = new ArrayList<>();
+        SalaryController salaryController = new SalaryController();
 
         Employee tan = new FullTimeEmployee();
         tan.setName("Tan");
@@ -33,14 +35,7 @@ public class TestEmployee {
         employeeList.add(ha);
         employeeList.add(nguyen);
         employeeList.add(manh);
-        int sumSalary =0 ;
 
-        for (Employee e : employeeList)
-        {
-            sumSalary = sumSalary+e.getSalary();
-        }
-
-        System.out.println("Sum of salary of 5 employeees:"+ sumSalary);
+        System.out.println("Total salary is: " + salaryController.totalEmployeeSalary(employeeList));
     }
-
 }
