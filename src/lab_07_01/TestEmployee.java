@@ -1,7 +1,6 @@
-package lab_07;
+package lab_07_01;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TestEmployee {

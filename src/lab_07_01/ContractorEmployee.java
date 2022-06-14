@@ -1,7 +1,7 @@
-package lab_07;
+package lab_07_01;
 
-public class FullTimeEmployee extends Employee{
-    private int salary = 50000;
+public class ContractorEmployee extends Employee{
+    private int salary = 40000;
 
     @Override
     public int getSalary() {
