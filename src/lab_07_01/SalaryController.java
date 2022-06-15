@@ -8,7 +8,7 @@ public class SalaryController {
 
     public static void main(String[] args) {
         SalaryController salaryController = new SalaryController();
-        Employee tan = new FullTimeEmployee();
+        FullTimeEmployee tan = new FullTimeEmployee();
         Employee nga = new FullTimeEmployee();
         Employee bao = new FullTimeEmployee();
         Employee binh = new ContractorEmployee();

@@ -8,6 +8,9 @@ public class Employee {
     public Employee() {
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getSalary() {
         return salary;
