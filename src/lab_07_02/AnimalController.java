@@ -1,9 +1,7 @@
 package lab_07_02;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Array;
+import java.util.*;
 
 public class AnimalController {
 
@@ -13,32 +11,35 @@ public class AnimalController {
         Animal horse = new Horse();
         Animal tiger = new Tiger();
 
-        int dogSpeed = dog.speed();
-        int horseSpeed = horse.speed();
-        int tigerSpeed = tiger.speed();
+        dog.setName(dog.getClass().getSimpleName());
+        horse.setName(horse.getClass().getSimpleName());
+        tiger.setName(tiger.getClass().getSimpleName());
 
+        List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
+        Map<Integer, List<Animal>> animalData = new HashMap<>();
 
-        int winnerSpeed = findFastestSpeed(Arrays.asList(dogSpeed,horseSpeed,tigerSpeed));
-
-        Map<Integer, List<Animal>> animalData = new HashMap();
-        animalData.put();
-
-
-
-    }
-
-    private static boolean checkEqualSpeed(List<Integer> speedList) {
-
-    }
-
-    private static int findFastestSpeed(List<Integer> speedList) {
-        int tempValue = speedList.get(0);
-        for (int indexSpeed = 1; indexSpeed < speedList.size(); indexSpeed++) {
-            if (speedList.get(indexSpeed) > tempValue){
-                tempValue = speedList.get(indexSpeed);
+        // Add value to animalData
+        for (Animal animal : animalList) {
+            if (animalData.containsKey(animal.speed())) {
+                animalData.get(animal.speed()).add(animal);
+            } else {
+                animalData.put(animal.speed(), new ArrayList(Arrays.asList(animal)));
             }
         }
-        return tempValue;
+
+        int winnerSpeed = Collections.max(animalData.keySet());
+        Set<Integer> allSpeed = animalData.keySet();
+
+        List<Animal> winnerAnimalNames = new ArrayList<>();
+
+            animalData.forEach((key,value) -> {
+                if(key == winnerSpeed){
+                    winnerAnimalNames.addAll(value);
+                }
+            });
+
+        System.out.println("Winner is" + winnerAnimalNames + ", with speed:" + winnerSpeed );
+        }
+
     }
 
-}
