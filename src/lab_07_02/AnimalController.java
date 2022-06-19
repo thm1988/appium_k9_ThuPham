@@ -15,6 +15,12 @@ public class AnimalController {
         tiger.setName(tiger.getClass().getSimpleName());
 
         List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
+
+        for (Animal animal : animalList) {
+            System.out.println(animal.getName() + ":"+ animal.speed());
+        }
+
+
         Map<Integer, List<Animal>> animalData = new HashMap<>();
 
         // Add value to animalData
@@ -27,7 +33,6 @@ public class AnimalController {
         }
 
         int winnerSpeed = Collections.max(animalData.keySet());
-        Set<Integer> allSpeed = animalData.keySet();
         List<Animal> winnerAnimalNames = new ArrayList<>();
 
         animalData.forEach((key, value) -> {
@@ -41,6 +46,7 @@ public class AnimalController {
         for (Animal winnerAnimalName : winnerAnimalNames) {
             animalWinnerNameList.add(winnerAnimalName.getName());
         }
+
         System.out.println("Winner is : " + animalWinnerNameList.toString() + " , with speed: " + winnerSpeed);
     }
 

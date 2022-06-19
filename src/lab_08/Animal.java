@@ -5,27 +5,51 @@ import java.security.SecureRandom;
 public class Animal {
     private String name;
     private int animalSpeed;
+    private boolean flyAble;
 
-    public Animal(int maxSpeed) {
-        this.animalSpeed = new SecureRandom().nextInt(maxSpeed);
-        //this.animalSpeed = 40;
+    // Create protected Animal
+    protected Animal(Builder builder){
+        name = builder.name;
+        animalSpeed = builder.animalSpeed;
+        flyAble = builder.flyAble;
     }
 
-    public Animal(String name, int animalSpeed) {
-        this.name = name;
-        this.animalSpeed = animalSpeed;
-    }
+    // READ ONLY
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
     }
 
-    public int speed() {
-        return this.animalSpeed;
+    public int getAnimalSpeed() {
+        return animalSpeed;
+    }
+
+    public boolean isFlyAble() {
+        return flyAble;
+    }
+
+    // Inner class
+    public static class Builder{
+        private String name;
+        private int animalSpeed;
+        private boolean flyAble;
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAnimalSpeed(int animalSpeed) {
+            this.animalSpeed = new SecureRandom().nextInt(animalSpeed);
+        }
+
+        public void setFlyAble(boolean flyAble) {
+            this.flyAble = flyAble;
+        }
+
+        public Animal build(){
+            return new Animal(this);
+        }
     }
 
     @Override
@@ -33,6 +57,7 @@ public class Animal {
         return "Animal{" +
                 "name='" + name + '\'' +
                 ", animalSpeed=" + animalSpeed +
+                ", flyAble=" + flyAble +
                 '}';
     }
 }
