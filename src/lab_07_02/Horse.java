@@ -9,4 +9,9 @@ public class Horse extends Animal{
     public Horse() {
         super(MAX_SPEED_HORSE);
     }
+
+    // Simulate the test
+//    public int speed() {
+//        return 45;
+//    }
 }
