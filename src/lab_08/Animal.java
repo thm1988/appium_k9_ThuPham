@@ -35,16 +35,19 @@ public class Animal {
         private int animalSpeed;
         private boolean flyAble;
 
-        public void setName(String name) {
+        public Builder setName(String name) {
             this.name = name;
+            return this;
         }
 
-        public void setAnimalSpeed(int animalSpeed) {
-            this.animalSpeed = new SecureRandom().nextInt(animalSpeed);
+        public Builder setAnimalSpeed(int animalSpeedMaxSpeed) {
+            this.animalSpeed = new SecureRandom().nextInt(animalSpeedMaxSpeed);
+            return this;
         }
 
-        public void setFlyAble(boolean flyAble) {
+        public Builder setFlyAble(boolean flyAble) {
             this.flyAble = flyAble;
+            return this;
         }
 
         public Animal build(){
