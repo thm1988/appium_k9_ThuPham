@@ -16,10 +16,7 @@ public class AnimalController {
 
         List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
 
-        for (Animal animal : animalList) {
-            System.out.println(animal.getName() + ":"+ animal.speed());
-        }
-
+        System.out.println(animalList);
 
         Map<Integer, List<Animal>> animalData = new HashMap<>();
 
@@ -42,7 +39,6 @@ public class AnimalController {
         });
 
         List<String> animalWinnerNameList = new ArrayList<String>();
-
         for (Animal winnerAnimalName : winnerAnimalNames) {
             animalWinnerNameList.add(winnerAnimalName.getName());
         }
