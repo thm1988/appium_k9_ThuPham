@@ -1,6 +1,5 @@
-package lab_07_02;
+package lession_09;
 
-import java.sql.Array;
 import java.util.*;
 
 public class AnimalController {
@@ -15,7 +14,7 @@ public class AnimalController {
         horse.setName(horse.getClass().getSimpleName());
         tiger.setName(tiger.getClass().getSimpleName());
         List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
-        System.out.println("The initial animal list:" + animalList);
+
         // Create a Map to contain the list of Animals based on the key (speed)
         Map<Integer, List<Animal>> animalData = new HashMap<>();
 
@@ -27,6 +26,7 @@ public class AnimalController {
                 animalData.put(animal.speed(), new ArrayList(Arrays.asList(animal)));
             }
         }
+        System.out.println(animalData);
 
         // Get all key values from the record
         List<Integer> animalSpeedList = new ArrayList<>(animalData.keySet());

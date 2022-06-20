@@ -14,10 +14,11 @@ public class SalaryController {
         Employee binh = new ContractorEmployee();
         Employee loc = new ContractorEmployee();
 
-        List<Employee> employeeList = new ArrayList<>(Arrays.asList(tan,nga,bao,binh,loc));
+        List<Employee> employeeList = new ArrayList<>(Arrays.asList(tan, nga, bao, binh, loc));
         System.out.println("Total salary is " + salaryController.totalEmployeeSalary(employeeList));
     }
-    public int totalEmployeeSalary(List<Employee> employeeList){
+
+    public int totalEmployeeSalary(List<Employee> employeeList) {
         int totalSalary = 0;
 
         for (Employee employee : employeeList) {
