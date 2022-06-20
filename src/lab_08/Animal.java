@@ -42,6 +42,7 @@ public class Animal {
 
         public Builder setAnimalSpeed(int animalSpeedMaxSpeed) {
             this.animalSpeed = new SecureRandom().nextInt(animalSpeedMaxSpeed);
+//            this.animalSpeed = 46;
             return this;
         }
 
