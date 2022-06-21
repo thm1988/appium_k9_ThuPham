@@ -7,6 +7,4 @@ public class FullTimeEmployee extends Employee {
     public int getSalary() {
         return FULLTIME_SALARY;
     }
-
-
 }

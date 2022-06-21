@@ -12,7 +12,7 @@ public class Employee {
     }
 
     public int getSalary() {
-        return salary;
+        return 0;
     }
 
 

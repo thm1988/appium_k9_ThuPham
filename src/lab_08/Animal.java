@@ -8,15 +8,13 @@ public class Animal {
     private boolean flyAble;
 
     // Create protected Animal
-    protected Animal(Builder builder){
+    protected Animal(Builder builder) {
         name = builder.name;
         animalSpeed = builder.animalSpeed;
         flyAble = builder.flyAble;
     }
 
     // READ ONLY
-
-
     public String getName() {
         return name;
     }
@@ -30,11 +28,12 @@ public class Animal {
     }
 
     // Inner class
-    public static class Builder{
+    public static class Builder {
         private String name;
         private int animalSpeed;
         private boolean flyAble;
 
+        //WRITE ONLY
         public Builder setName(String name) {
             this.name = name;
             return this;
@@ -51,7 +50,7 @@ public class Animal {
             return this;
         }
 
-        public Animal build(){
+        public Animal build() {
             return new Animal(this);
         }
     }

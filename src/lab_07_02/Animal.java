@@ -11,9 +11,8 @@ public class Animal {
         //this.animalSpeed = 40;
     }
 
-    public Animal(String name, int animalSpeed) {
+    public Animal(String name) {
         this.name = name;
-        this.animalSpeed = animalSpeed;
     }
 
     public void setName(String name) {
