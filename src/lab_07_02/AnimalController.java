@@ -15,6 +15,15 @@ public class AnimalController {
         horse.setName(horse.getClass().getSimpleName());
         tiger.setName(tiger.getClass().getSimpleName());
         List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
+        Map<Integer,List<String>> result = findWinnerAnimalsAndSpeed(animalList);
+
+        result.entrySet().forEach(entry -> {
+            System.out.println("Winner is : " + entry.getValue() + " , with speed: " + entry.getKey());
+        });
+    }
+
+
+    private static Map<Integer, List<String>> findWinnerAnimalsAndSpeed(List<Animal> animalList) {
         System.out.println("The initial animal list:" + animalList);
         // Create a Map to contain the list of Animals based on the key (speed)
         Map<Integer, List<Animal>> animalData = new HashMap<>();
@@ -39,8 +48,12 @@ public class AnimalController {
         for (Animal animal : animalWinnerList) {
             animalWinnerNameList.add(animal.getName());
         }
-        System.out.println("Winner is : " + animalWinnerNameList + " , with speed: " + winnerSpeed);
+
+        Map<Integer,List<String>> resultMethod = new HashMap<>();
+        resultMethod.put(winnerSpeed,animalWinnerNameList);
+        return resultMethod;
     }
+
 
     private static int findMaxValueFromListOfInteger(List<Integer> integerList) {
         int maxValueReturn = integerList.get(0);

@@ -1,19 +1,12 @@
-package lession_09;
+package lab_09;
 
 import java.security.SecureRandom;
 
-public abstract class  Animal {
+public abstract class Animal {
     private String name;
     private int animalSpeed;
-
-    public Animal() {
-//        this.animalSpeed = new SecureRandom().nextInt(maxSpeed);
-        //this.animalSpeed = 40;
-    }
-
-    public Animal(String name, int animalSpeed) {
-        this.name = name;
-        this.animalSpeed = animalSpeed;
+    public Animal(int animalMaxSpeed) {
+        this.animalSpeed = new SecureRandom().nextInt(animalMaxSpeed);
     }
 
     public void setName(String name) {
@@ -24,7 +17,11 @@ public abstract class  Animal {
         return name;
     }
 
-    public abstract int speed();
+    public int getAnimalSpeed() {
+        return this.animalSpeed;
+    }
+
+    public abstract int setSpeed();
 
     @Override
     public String toString() {
