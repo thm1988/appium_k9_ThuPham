@@ -1,7 +1,6 @@
 package lab_08;
 
 import java.util.*;
-
 import static lab_07_helper.Helper.DefineHelper.findMaxValueFromListOfInteger;
 
 public class AnimalController {
@@ -49,7 +48,6 @@ public class AnimalController {
         for (Animal animal : animalWinnerList) {
             animalWinnerNameList.add(animal.getName());
         }
-
         Map<Integer, List<String>> resultMethod = new HashMap<>();
         resultMethod.put(animalWinnerSpeed, animalWinnerNameList);
         return resultMethod;
