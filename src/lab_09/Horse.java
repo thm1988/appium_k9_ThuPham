@@ -15,14 +15,13 @@ public class Horse extends Animal {
         return this.speed;
     }
 
-    @Override
-    public String toString() {
-        return "Horse{" +
-                "speed=" + speed +
-                "} " + super.toString();
-    }
+    // Simulate the test
+//    public int speed() {
+//        return 45;
+//    }
 
 }
+
 // Simulate the test
 //    public int speed() {
 //        return 45;

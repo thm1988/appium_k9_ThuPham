@@ -20,11 +20,4 @@ public class Dog extends Animal {
 //        return 45;
 //    }
 
-
-    @Override
-    public String toString() {
-        return "Dog{" +
-                "speed=" + speed +
-                "} " + super.toString();
-    }
 }

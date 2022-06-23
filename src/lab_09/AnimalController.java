@@ -34,10 +34,8 @@ public class AnimalController {
                 animalData.put(animal.speed(), new ArrayList(Arrays.asList(animal)));
             }
         }
-        // Get all key values from the record
-        List<Integer> animalSpeedList = new ArrayList<>(animalData.keySet());
-        // Find out the winner setSpeed
-        int animalWinnerSpeed = findMaxValueFromListOfInteger(animalSpeedList);
+        // Find the max speed
+        int animalWinnerSpeed = Collections.max(animalData.keySet());
         // Get a list of winner animals
         List<Animal> animalWinnerList = new ArrayList<>(animalData.get(animalWinnerSpeed));
         // Loop through the animal winner list and get their names
