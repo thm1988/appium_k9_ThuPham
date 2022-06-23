@@ -14,7 +14,7 @@ public class AnimalController {
         List<Animal> animalList = new ArrayList<Animal>(Arrays.asList(dog, horse, tiger));
         System.out.println("Animal list: ");
         for (Animal animal : animalList) {
-            System.out.printf("Animal name: %s and speed : %d\n", animal.getClass().getSimpleName(), animal.setSpeed());
+            System.out.printf("Animal name: %s and speed : %d\n", animal.getClass().getSimpleName(), animal.speed());
         }
         Map<Integer, List<String>> result = findWinnerAnimalsAndSpeed(animalList);
         System.out.println("Result is: ");
@@ -28,10 +28,10 @@ public class AnimalController {
         Map<Integer, List<Animal>> animalData = new HashMap<>();
         // Add value to animalData
         for (Animal animal : animalList) {
-            if (animalData.containsKey(animal.setSpeed())) {
-                animalData.get(animal.setSpeed()).add(animal);
+            if (animalData.containsKey(animal.speed())) {
+                animalData.get(animal.speed()).add(animal);
             } else {
-                animalData.put(animal.setSpeed(), new ArrayList(Arrays.asList(animal)));
+                animalData.put(animal.speed(), new ArrayList(Arrays.asList(animal)));
             }
         }
         // Get all key values from the record

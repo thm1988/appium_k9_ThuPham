@@ -11,7 +11,7 @@ public class Tiger extends Animal {
     }
 
     @Override
-    public int setSpeed() {
+    public int speed() {
         return this.speed;
     }
 

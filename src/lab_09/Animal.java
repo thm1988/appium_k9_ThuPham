@@ -14,5 +14,5 @@ public abstract class Animal {
         return name;
     }
 
-    public abstract int setSpeed();
+    public abstract int speed();
 }
