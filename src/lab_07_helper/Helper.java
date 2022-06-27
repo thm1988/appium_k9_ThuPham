@@ -18,10 +18,8 @@ public class Helper {
                 }
             }
 
-            // Get all key values from the record
-            List<Integer> animalSpeedList = new ArrayList<>(animalData.keySet());
             // Find out the winner speed
-            int winnerSpeed = findMaxValueFromListOfInteger(animalSpeedList);
+            int winnerSpeed = Collections.max(animalData.keySet());
             // Get a list of winner animals
             List<Animal> animalWinnerList = new ArrayList<>(animalData.get(winnerSpeed));
             // Loop through the animal winner list and get their names

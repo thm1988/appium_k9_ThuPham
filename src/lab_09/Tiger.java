@@ -11,14 +11,8 @@ public class Tiger extends Animal {
     }
 
     @Override
-    public int setSpeed() {
+    public int speed() {
         return this.speed;
     }
 
-    @Override
-    public String toString() {
-        return "Tiger{" +
-                "speed=" + speed +
-                "} " + super.toString();
-    }
 }
