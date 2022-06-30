@@ -4,7 +4,7 @@ import lession_10.ParentClass;
 
 public class ChildClass extends ParentClass {
     @Override
-    void fromParent() {
+    public void fromParent() {
         super.fromParent();
     }
 }
