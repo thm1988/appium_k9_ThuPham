@@ -56,7 +56,7 @@ public class DataFactory {
         return bookList;
     }
 
-    public static void saveBookListToFile(List<Book> bookList, String filePath) throws IOException {
+    public static void saveBookListToFile(List<Book> bookList, String filePath) {
         System.out.println("[INFO] Save books to: ".concat(filePath));
 
         try (
@@ -71,6 +71,7 @@ public class DataFactory {
             }
         } catch (FileNotFoundException e) {
             System.out.println("[ERR] File is not found!!!");
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -34,7 +34,10 @@ public class BookController {
             switch (userChoice) {
                 case 1:
                     System.out.println("1. New book");
-                    enterNewBook();
+                    List<Book> oldBookList = DataFactory.getBookListFromFile(filePath);
+                    List<Book> bookEntryUser = enterNewBook();
+
+                    DataFactory.saveBookListToFile(bookEntryUser,filePath);
                     break;
                 case 2:
                     System.out.println("2. Find a book(ISBN)");
@@ -65,18 +68,17 @@ public class BookController {
         Scanner scanner = new Scanner(System.in);
         int numberOfBooks = scanner.nextInt();
         for (int index = 0; index < numberOfBooks; index++) {
-            System.out.print("Enter the book :" + (index + 1));
+            System.out.println("Enter the book :" + (index + 1));
             System.out.println("Enter ISBN : ");
             int bookISBN = scanner.nextInt();
             System.out.println("Enter Title : ");
-            String bookTitle = String.valueOf(scanner.nextInt());
+            String bookTitle = scanner.nextLine();
             System.out.println("Enter Author : ");
-            String bookAuthor = String.valueOf(scanner.nextInt());
+            String bookAuthor = scanner.nextLine();
             System.out.println("Enter Year : ");
             int bookYear = scanner.nextInt();
             Book bookAdd = new Book(bookISBN,bookTitle,bookAuthor,bookYear);
             bookList.add(bookAdd);
-            System.out.println();
         }
         return bookList;
     }
