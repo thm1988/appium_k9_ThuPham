@@ -9,6 +9,13 @@ public class Book {
     public Book() {
     }
 
+    public Book(int ISBN, String title, String author, int year) {
+        this.ISBN = ISBN;
+        Title = title;
+        Author = author;
+        Year = year;
+    }
+
     public int getISBN() {
         return ISBN;
     }
