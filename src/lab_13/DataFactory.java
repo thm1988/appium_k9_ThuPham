@@ -12,7 +12,7 @@ public class DataFactory {
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         ) {
-            bufferedReader.readLine();
+            //bufferedReader.readLine();
             String dataLine = bufferedReader.readLine();
             while (dataLine != null) {
                 System.out.println(dataLine);
@@ -34,7 +34,7 @@ public class DataFactory {
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         ) {
-            bufferedReader.readLine();
+            //bufferedReader.readLine();
             String dataLine = bufferedReader.readLine();
             while (dataLine != null) {
 
@@ -78,4 +78,25 @@ public class DataFactory {
 
     }
 
+    public static List<Book> findBookFromList(int ISBN , String filePath) {
+        List<Book> bookList = getBookListFromFile(filePath);
+        List<Book> bookListResult = new ArrayList<>();
+        for (Book book : bookList) {
+            if (book.getISBN() == ISBN) {
+                bookListResult.add(book);
+            }
+        }
+        return bookListResult;
+    }
+
+    public static List<Book> updateBookList(List<Book> bookListArg) {
+        List<Book> bookList = new ArrayList<>();
+        for (Book book : bookList) {
+
+
+        }
+
+        return bookList;
+
+    }
 }
