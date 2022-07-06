@@ -1,8 +1,7 @@
 package lab_13;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class DataFactory {
     public static void readFile(String filePath) {
@@ -89,14 +88,46 @@ public class DataFactory {
         return bookListResult;
     }
 
-    public static List<Book> updateBookList(List<Book> bookListArg) {
-        List<Book> bookList = new ArrayList<>();
-        for (Book book : bookList) {
+    public static Map<Integer,List<Book>> updateBookList(int ISBNArg, List<Book> bookListArg) {
+        Scanner scanner = new Scanner(System.in);
+        HashMap<Integer,List<Book>> bookUpdateData = new HashMap<>();
+        bookUpdateData.put(ISBNArg,bookListArg);
+        List<Book> updateBooks = new ArrayList<>();
 
-
+        for (Book book : bookListArg) {
+            book.setISBN(ISBNArg);
+            System.out.println("Please input the new book name: ");
+            book.setTitle(scanner.nextLine());
+            System.out.println("Please input the new book author: ");
+            book.setAuthor(scanner.nextLine());
+            System.out.println("Please input the new year: ");
+            book.setYear(scanner.nextInt());
+            updateBooks.add(book);
         }
-
-        return bookList;
-
+        bookUpdateData.replace(ISBNArg,updateBooks);
+        return bookUpdateData;
     }
+
+    public static List<Book> getNewBook() {
+        System.out.print("How many book(s) do you want to enter: ");
+        Scanner scanner = new Scanner(System.in);
+        int numberOfBooks = scanner.nextInt();
+        List<Book> bookList = new ArrayList<>();
+        for (int index = 0; index < numberOfBooks; index++) {
+            System.out.printf("Enter value for book number %d ", ++index);
+            Book book = new Book();
+            System.out.print("Enter ISBN: ");
+            book.setISBN(scanner.nextInt());
+            System.out.print("Enter Title: ");
+            scanner.nextLine();
+            book.setTitle(scanner.nextLine());
+            System.out.print("Enter Author: ");
+            book.setAuthor(scanner.nextLine());
+            System.out.print("Enter Year: ");
+            book.setYear(scanner.nextInt());
+            bookList.add(book);
+        }
+        return bookList;
+    }
+
 }
