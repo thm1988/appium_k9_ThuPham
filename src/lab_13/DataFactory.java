@@ -77,35 +77,31 @@ public class DataFactory {
 
     }
 
-    public static List<Book> findBookFromList(int ISBN , String filePath) {
+    public static Book findBookFromList(int ISBN , String filePath) {
         List<Book> bookList = getBookListFromFile(filePath);
-        List<Book> bookListResult = new ArrayList<>();
+        Book bookResult = null;
         for (Book book : bookList) {
             if (book.getISBN() == ISBN) {
-                bookListResult.add(book);
+                bookResult = book;
             }
         }
-        return bookListResult;
+        return bookResult;
     }
 
-    public static Map<Integer,List<Book>> updateBookList(int ISBNArg, List<Book> bookListArg) {
-        Scanner scanner = new Scanner(System.in);
-        HashMap<Integer,List<Book>> bookUpdateData = new HashMap<>();
-        bookUpdateData.put(ISBNArg,bookListArg);
-        List<Book> updateBooks = new ArrayList<>();
+    public static Book updateBook(int ISBNArg, Book bookArg) {
 
-        for (Book book : bookListArg) {
-            book.setISBN(ISBNArg);
-            System.out.println("Please input the new book name: ");
-            book.setTitle(scanner.nextLine());
-            System.out.println("Please input the new book author: ");
-            book.setAuthor(scanner.nextLine());
-            System.out.println("Please input the new year: ");
-            book.setYear(scanner.nextInt());
-            updateBooks.add(book);
-        }
-        bookUpdateData.replace(ISBNArg,updateBooks);
-        return bookUpdateData;
+        Scanner scanner = new Scanner(System.in);
+        Book resultBookUpdate = new Book();
+
+        resultBookUpdate.setISBN(ISBNArg);
+        System.out.println("Please input the new book name: ");
+        resultBookUpdate.setTitle(scanner.nextLine());
+        System.out.println("Please input the new book author: ");
+        resultBookUpdate.setAuthor(scanner.nextLine());
+        System.out.println("Please input the new year: ");
+        resultBookUpdate.setYear(scanner.nextInt());
+
+        return resultBookUpdate;
     }
 
     public static List<Book> getNewBook() {

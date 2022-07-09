@@ -1,6 +1,8 @@
-package lab_13;
+package lab_13_v1;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     private int ISBN;
     private String Title;
     private String Author;
@@ -9,8 +11,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(int ISBN, String title, String author, int year) {
-        ISBN = ISBN;
+    public Book(int isbn, String title, String author, int year) {
+        ISBN = isbn;
         Title = title;
         Author = author;
         Year = year;
@@ -46,5 +48,15 @@ public class Book {
 
     public void setYear(int year) {
         Year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "ISBN=" + ISBN +
+                ", Title='" + Title + '\'' +
+                ", Author='" + Author + '\'' +
+                ", Year=" + Year +
+                '}';
     }
 }

@@ -1,6 +1,8 @@
-package lab_13;
+package lab_13_v1;
 
-import java.util.*;
+import java.io.File;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,6 +38,9 @@ public class BookController {
     public static void manageBook(String filePath) {
         boolean isContinuing = true;
         int userChoice;
+        // Declare FILE
+        File file = new File(filePath);
+
         do {
             printMenu();
             Scanner scanner = new Scanner(System.in);
@@ -45,33 +50,23 @@ public class BookController {
             switch (userChoice) {
                 case 1:
                     System.out.println("1. New book");
-                    List<Book> oldBookList = DataFactory.getBookListFromFile(filePath);
-                    List<Book> bookEntryUser = DataFactory.getNewBook();
-                    List<Book> combineBookList = Stream.concat(oldBookList.stream(), bookEntryUser.stream())
-                            .collect(Collectors.toList());
-                    DataFactory.saveBookListToFile(combineBookList, filePath);
+                    DataFactory.createBook(file);
                     break;
                 case 2:
                     System.out.println("2. Find a book(ISBN)");
-                    System.out.println("Please enter the ISBN for searching: ");
-                    int userSearchISBN = scanner.nextInt();
-                    Book searchBookResult = DataFactory.findBookFromList(userSearchISBN, filePath);
-                    if (!(searchBookResult == null)) {
-                        printBook(searchBookResult);
-                    } else {
-                        System.out.println("[INF] Book with ISBN <"+userSearchISBN+"> is not found");
-                    }
+                    DataFactory.findBook(file);
                     break;
                 case 3:
                     System.out.println("3. Update a book");
+                    DataFactory.updateBook(file);
                     break;
                 case 4:
                     System.out.println("4. Delete a book");
+                    DataFactory.deleteBook(file);
                     break;
                 case 5:
                     System.out.println("5. Print the book list");
-                    List<Book> bookList = DataFactory.getBookListFromFile(filePath);
-                    printBookList(bookList);
+                    DataFactory.printBookList(file);
                     break;
                 case 0:
                     System.out.println("Now exit!!!");
@@ -83,24 +78,24 @@ public class BookController {
     }
 
 
-    private static void printBookList(List<Book> bookList) {
-        for (int index = 0; index < bookList.size(); index++) {
-            System.out.println("Book : " + (index + 1));
-            System.out.println("ISBN : " + bookList.get(index).getISBN());
-            System.out.println("Title : " + bookList.get(index).getTitle());
-            System.out.println("Author : " + bookList.get(index).getAuthor());
-            System.out.println("Year : " + bookList.get(index).getYear());
-            System.out.println();
-        }
-    }
+//    private static void printBookList(List<Book> bookList) {
+//        for (int index = 0; index < bookList.size(); index++) {
+//            System.out.println("Book : " + (index + 1));
+//            System.out.println("ISBN : " + bookList.get(index).getISBN());
+//            System.out.println("Title : " + bookList.get(index).getTitle());
+//            System.out.println("Author : " + bookList.get(index).getAuthor());
+//            System.out.println("Year : " + bookList.get(index).getYear());
+//            System.out.println();
+//        }
+//    }
 
-    private static void printBook(Book book) {
-        System.out.println("ISBN : " + book.getISBN());
-        System.out.println("Title : " + book.getTitle());
-        System.out.println("Author : " + book.getAuthor());
-        System.out.println("Year : " + book.getYear());
-        System.out.println();
-    }
+//    private static void printBook(Book book) {
+//        System.out.println("ISBN : " + book.getISBN());
+//        System.out.println("Title : " + book.getTitle());
+//        System.out.println("Author : " + book.getAuthor());
+//        System.out.println("Year : " + book.getYear());
+//        System.out.println();
+//    }
 }
 
 
