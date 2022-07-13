@@ -40,6 +40,35 @@ public class DataFactory {
     }
 
     public static void findBook(File fileArg) {
+        try {
+            if (fileArg.isFile()){
+                objectInputStream = new ObjectInputStream(new FileInputStream(fileArg));
+                bookArrayList = (ArrayList<Book>)objectInputStream.readObject();
+                objectInputStream.close();
+            }
+            System.out.println("Please enter ISBN to search: ");
+            Scanner scanner = new Scanner(System.in);
+            int searchISBN = scanner.nextInt();
+            bookListIterator = bookArrayList.listIterator();
+            while (bookListIterator.hasNext()) {
+                Book loopBook = (Book)bookListIterator.next();
+                if (loopBook.getISBN() == searchISBN) {
+                    System.out.println("Search book is found: ");
+                    System.out.println("ISBN: "+ loopBook.getISBN());
+                    System.out.println("Title: "+ loopBook.getTitle());
+                    System.out.println("Author: "+ loopBook.getAuthor());
+                    System.out.println("Year: "+ loopBook.getYear());
+                    break;
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("[ERR] File not found..!!!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void updateBook(File fileArg) {
@@ -57,8 +86,16 @@ public class DataFactory {
                 objectInputStream.close();
             }
             bookListIterator = bookArrayList.listIterator();
+            int count = 1;
             while (bookListIterator.hasNext()) {
-                System.out.println(bookListIterator.next());
+                Book loopBook = (Book)bookListIterator.next();
+                System.out.println("Book: "+ count);
+                System.out.println("ISBN: "+ loopBook.getISBN());
+                System.out.println("Title: "+ loopBook.getTitle());
+                System.out.println("Author: "+ loopBook.getAuthor());
+                System.out.println("Year: "+ loopBook.getYear());
+                System.out.println();
+                count++;
             }
             System.out.println("---------------------------------");
         } catch (FileNotFoundException e) {
