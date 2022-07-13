@@ -18,9 +18,9 @@ public class BookController {
         String OS = System.getProperty("os.name");
         String relativeFilePath = null;
         if (OS.startsWith("Windows")) {
-            relativeFilePath = "\\src\\lab_13\\BookData.csv";
+            relativeFilePath = "\\src\\lab_13_v1\\BookData.csv";
         } else {
-            relativeFilePath = "/src/lab_13/BookData.csv";
+            relativeFilePath = "/src/lab_13_v1/BookData.csv";
         }
         return relativeFilePath;
     }
