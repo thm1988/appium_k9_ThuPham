@@ -76,26 +76,6 @@ public class BookController {
             }
         } while (isContinuing);
     }
-
-
-//    private static void printBookList(List<Book> bookList) {
-//        for (int index = 0; index < bookList.size(); index++) {
-//            System.out.println("Book : " + (index + 1));
-//            System.out.println("ISBN : " + bookList.get(index).getISBN());
-//            System.out.println("Title : " + bookList.get(index).getTitle());
-//            System.out.println("Author : " + bookList.get(index).getAuthor());
-//            System.out.println("Year : " + bookList.get(index).getYear());
-//            System.out.println();
-//        }
-//    }
-
-//    private static void printBook(Book book) {
-//        System.out.println("ISBN : " + book.getISBN());
-//        System.out.println("Title : " + book.getTitle());
-//        System.out.println("Author : " + book.getAuthor());
-//        System.out.println("Year : " + book.getYear());
-//        System.out.println();
-//    }
 }
 
 
